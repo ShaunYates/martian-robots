@@ -1,18 +1,20 @@
 {
   "name": "martian-robots",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/cli.js",
   "private": true,
   "description": "Implementation of the Red Badger Martian Robots programming challenge.",
   "scripts": {
     "test": "vitest run",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "tsx src/cli.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^26.4.1",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2",
     "vitest": "^3.2.4"
   }

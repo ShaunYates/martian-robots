@@ -6,7 +6,9 @@
       "noUncheckedIndexedAccess": true,
       "esModuleInterop": true,
       "skipLibCheck": true,
-      "noEmit": true
+      "types": ["node"],
+      "outDir": "dist",
+      "rootDir": "src"
     },
-    "include": ["src/**/*.ts", "test/**/*.ts"]
+    "include": ["src/**/*.ts"]
   }
