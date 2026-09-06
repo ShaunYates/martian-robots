@@ -4,16 +4,8 @@ import {
     type Position,
   } from "../robot";
   
-  import type { RobotResult, World } from "./types";
-  
-  function isWithinWorld(world: World, position: Position): boolean {
-    return (
-      position.x >= 0 &&
-      position.x <= world.maxX &&
-      position.y >= 0 &&
-      position.y <= world.maxY
-    );
-  }
+  import { World } from "./world";
+  import type { RobotResult } from "./types";
   
   export function runRobot(
     world: World,
@@ -25,7 +17,13 @@ import {
     for (const instruction of instructions) {
       const nextPosition = navigate(position, [instruction]);
   
-      if (!isWithinWorld(world, nextPosition)) {
+      if (!world.contains(nextPosition)) {
+        if (world.hasScent(position)) {
+          continue;
+        }
+  
+        world.leaveScent(position);
+  
         return {
           position,
           lost: true,
