@@ -69,12 +69,6 @@ Run the test suite:
 npm test
 ```
 
-Run tests in watch mode:
-
-```bash
-npm run test:watch
-```
-
 Tests are split across the same main responsibilities as the application:
 
 ```text
@@ -107,11 +101,9 @@ The `world` module owns the bounded grid, lost robot behaviour, and scents.
 
 The `io` module handles parsing the challenge input and formatting the resulting robot positions.
 
-### Application
+### cli.ts
 
-The `application` module ties the other modules together and processes robots sequentially using the same world instance.
-
-`cli.ts` is intentionally thin and is responsible only for reading stdin and writing the final output.
+Ties the other modules together and processes robots sequentially using the same world instance.
 
 ## Technical choices
 
@@ -130,7 +122,7 @@ This keeps invalid domain values out of the core application while remaining con
 
 ### Vitest
 
-Vitest provides a lightweight TypeScript-friendly test setup and a familiar Jest-style API without requiring additional runtime configuration.
+Vitest provides a lightweight TypeScript-friendly test setup and a familiar Jest-style API without requiring additional runtime configuration. (I had planned to use Jest as this is what I know, but seems `ts-jest` did not work with the latest typescript version)
 
 ### Design
 
